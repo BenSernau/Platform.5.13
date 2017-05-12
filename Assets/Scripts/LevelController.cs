@@ -37,6 +37,8 @@ public class LevelController : MonoBehaviour {
     private GameObject platformsToAppear1;
     private GameObject platformsToAppear2;
 
+    private GameObject[] midAirBoosts;
+
     private bool lFanState;
     private bool rFanState;
 
@@ -57,6 +59,11 @@ public class LevelController : MonoBehaviour {
         armor = 5;
         playerHealth = 100;
         player = GameObject.FindWithTag("Player");
+        midAirBoosts = GameObject.FindGameObjectsWithTag("Bounce");
+        for (int i = 0; i < midAirBoosts.Length; i++)
+        {
+            midAirBoosts[i].SetActive(false);
+        }
         spawnPos = player.transform.position;
         spawnPlatform = 0;
 
@@ -218,6 +225,13 @@ public class LevelController : MonoBehaviour {
             else if (id.Equals("plat_contain2"))
             {
                 platformsToAppear2.SetActive(true);
+            }
+            else if (id.Equals("mid_air_boosts"))
+            {
+                for (int i = 0; i < midAirBoosts.Length; i++)
+                {
+                    midAirBoosts[i].SetActive(true);
+                }
             }
         }
 	}

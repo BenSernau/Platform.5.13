@@ -22,7 +22,7 @@ public class MidAirBoost : MonoBehaviour {
         if (Other.gameObject.CompareTag("PlayerTrigger"))
         {
             gameObject.SetActive(false);
-            player.playerRB.velocity = new Vector3(player.playerRB.velocity.x, player.playerRB.velocity.y + player.jumpSpeed/25, player.playerRB.velocity.z);
+            player.playerRB.velocity = new Vector3(player.playerRB.velocity.x, player.playerRB.velocity.y + player.jumpSpeed/35, player.playerRB.velocity.z);
         }
     }
 }
